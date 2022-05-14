@@ -13,32 +13,60 @@
     </nav>
 
 
+
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Branch ID</th>
+            <th scope="col">Branch Name</th>
+            <th scope="col">Location</th>
+            <th scope="col">Branch Code</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let branch of branchList">
+            <td>{{branch.id}}</td>
+            <td>{{branch.branchname}}</td>
+            <td>{{branch.location}}</td>
+            <td>{{branch.branchCode}}</td>
+            
+            <td>
+                <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#editBranch"  >Edit</button>
+                <button type="button" class="btn btn-outline-danger " >Delete</button>
+            </td>
+          </tr>
+         
+        </tbody>
+      </table>
+
+
   <!--Add Branch Modal -->
   <div class="modal fade" id="addBranch" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Add New Branch</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
         
-            <form>
+            <form [formGroup]="branchDetail">
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Branch Name</label>
-                  <input type="text" class="form-control" id="name" aria-describedby="emailHelp">
+                  <input type="text" formControlName="branchname" class="form-control" id="branchname" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Location</label>
-                    <input type="text" class="form-control" id="Location" aria-describedby="emailHelp">
+                    <input type="text" formControlName="location" class="form-control" id="location" aria-describedby="emailHelp">
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Branch Code</label>
-                    <input type="text" class="form-control" id="BranchCode" aria-describedby="emailHelp">
+                    <input type="text" formControlName="branchCode" class="form-control" id="branchCode" aria-describedby="emailHelp">
                   </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add Branch</button>
+                    <button type="button" class="btn btn-primary" (click)="addBranch()">Add Branch</button>
                   </div>
 
               </form>
@@ -48,5 +76,44 @@
       </div>
     </div>
   </div>
+
+
+  
+  <!-- Edit Branch modal -->
+  <div class="modal fade" id="editBranch" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Branch Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <form [formGroup]="branchDetail">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Branch Name</label>
+                  <input type="text" formControlName="branchname" class="form-control" id="branchname" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Location</label>
+                    <input type="text" formControlName="location" class="form-control" id="location" aria-describedby="emailHelp">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Branch Code</label>
+                    <input type="text" formControlName="branchCode" class="form-control" id="branchCode" aria-describedby="emailHelp">
+                  </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-outline-success" (click)="addBranch()">Update Branch</button>
+                  </div>
+
+              </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 </div>
