@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Branch Management</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+            <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addBranch" type="submit">Add Branch</button>
+          </div>
+        </div>
+    </nav>
+
+
+  <!--Add Branch Modal -->
+  <div class="modal fade" id="addBranch" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        
+            <form>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Branch Name</label>
+                  <input type="text" class="form-control" id="name" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Location</label>
+                    <input type="text" class="form-control" id="Location" aria-describedby="emailHelp">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Branch Code</label>
+                    <input type="text" class="form-control" id="BranchCode" aria-describedby="emailHelp">
+                  </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Add Branch</button>
+                  </div>
+
+              </form>
+
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+</div>
